@@ -1,9 +1,12 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables";
+
 .navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--color-black);
+    background: $color-black;
     padding: 1rem 2rem;
 
     &__logo {
@@ -14,6 +17,14 @@
 
     &__logoImg {
         width: 5rem;
+
+        @include mobile {
+            width: 80px;
+        }
+
+        @include desktop {
+            width: 120px;
+        }
     }
 
     &__links {
@@ -23,6 +34,10 @@
         justify-content: center;
         align-items: center;
         flex: 1;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__opensans {
@@ -30,7 +45,7 @@
         cursor: pointer;
 
         &:hover {
-            color: var(--color-grey);
+            color: $color-grey;
         }
     }
 
@@ -38,6 +53,10 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+
+        @include mobile {
+            display: none;
+        }
     }
 
     &__login-link {
@@ -47,14 +66,14 @@
         transition: 0.5s ease;
 
         &:hover {
-            border-bottom: 1px solid var(--color-golden);
+            border-bottom: 1px solid $color-golden;
         }
     }
 
     &__divider {
         width: 0.1rem;
         height: 2rem;
-        background-color: var(--color-grey);
+        background-color: $color-grey;
     }
 
     &__reserve-link {
@@ -64,12 +83,16 @@
         transition: 0.5s ease;
 
         &:hover {
-            border-bottom: 1px solid var(--color-golden);
+            border-bottom: 1px solid $color-golden;
         }
     }
 
     &__smallscreen {
         display: none;
+
+        @include tablet {
+            display: flex;
+        }
     }
 
     &__smallscreen-overlay {
@@ -78,7 +101,7 @@
         left: 0;
         width: 100%;
         height: calc(100vh - 10px);
-        background: var(--color-black);
+        background: $color-black;
         transition: 0.5s ease;
         flex-direction: column;
         text-align: center;
@@ -89,7 +112,7 @@
     &__smallscreen-overlay,
     &__overlay-close {
         font-size: 1.5rem;
-        color: var(--color-golden);
+        color: $color-golden;
         cursor: pointer;
         position: absolute;
         top: 10px;
@@ -106,48 +129,18 @@
     }
 
     &__smallscreen-links {
-        color: white;
+        color: $color-white;
         list-style: none;
         margin-top: calc(100vh - 40%);
-        color: var(--color-golden);
-        font-family: var(--font-base);
-    }
-}
+        color: $color-golden;
+        font-family: $font-base;
 
-@media screen and (max-width: 2000px) {
-    .navbar {
-        &__logoImg {
-            width: 120px;
-        }
-    }
-}
-
-@media screen and (max-width: 1150px) {
-    .navbar {
-        &__links {
-            display: none;
-        }
-
-        &__smallscreen {
-            display: flex;
-        }
-    }
-}
-
-@media screen and (max-width: 650px) {
-    .navbar {
-        padding: 1rem;
-
-        &__navbar-login {
-            display: none;
-        }
-
-        &__logoImg {
-            width: 80px;
-        }
-
-        &__smallscreen-links {
+        @include mobile {
             margin-top: calc(100vh - 130%);
         }
+    }
+
+    @include mobile {
+        padding: 1rem;
     }
 }

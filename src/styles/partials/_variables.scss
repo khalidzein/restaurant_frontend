@@ -1,0 +1,22 @@
+@use "./fonts" as *;
+
+//fonts
+$font-bold: "Cormorant-Upright-Bold";
+$font-light: "Cormorant-Upright-Light";
+$font-medium: "Cormorant-Upright-Medium";
+$font-regular: "Cormorant-Upright-Regular";
+$font-semiBold: "Cormorant-Upright-SemiBold";
+
+//primary colors
+
+$color-golden: #dcca87;
+$color-black: #0c0c0c;
+$color-gray: #545454;
+$color-crimson: #f5efdb;
+$color-grey: #aaaaaa;
+$color-white: #ffffff;
+
+//breakpoints
+$breakpoint-mobile: 650px;
+$breakpoint-tablet: 1150px;
+$breakpoint-desktop: 2000px;
